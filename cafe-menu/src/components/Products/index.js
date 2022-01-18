@@ -1,15 +1,29 @@
 import React, {useState} from 'react';
 import { ProductsContainer, ProdutctHeading, ProductWraper, ProductTitle, ProductCard, ProductImg, ProductInfo, ProductDesc, ProductPrice, ProductButton } from './ProductsElements';
-
+import Basket from '../Basket';
 const Products = ({data, heading}) => {
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const open = ()=>{
+        setIsOpen(true);
+    }
+
+    const close = ()=>{
+        setIsOpen(false);
+    }
 
     const addProduct = (e)=> {
         //método para adcionar produto na lista
-        alert(e.target)
+        let items = [];
+        items.push(e);
+        open();
+        console.log(e)
     }
 
     return (
         <ProductsContainer>
+            <Basket isOpen={isOpen} />
             <ProdutctHeading>{heading}</ProdutctHeading>
             <ProductWraper>
                 {data.map((product, index) => {
@@ -20,7 +34,9 @@ const Products = ({data, heading}) => {
                             <ProductTitle>{product.name} </ProductTitle>
                             <ProductDesc>{product.desc}</ProductDesc>
                             <ProductPrice>{product.price}</ProductPrice>
-                            <ProductButton onClick={ addProduct } key={product}>Adicionar</ProductButton>
+                            <ProductButton onClick={  ()=> {
+                                addProduct(product);
+                            }} key={product.id}>Adicionar</ProductButton>
                             </ProductInfo>
                         </ProductCard>
                     );
