@@ -4,6 +4,7 @@ import { ProductsContainer, ProdutctHeading, ProductWraper, ProductTitle, Produc
 const Products = ({data, heading}) => {
 
     const addProduct = (e)=> {
+        //método para adcionar produto na lista
         alert(e.target)
     }
 
