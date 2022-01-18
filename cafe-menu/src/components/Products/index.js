@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { ProductsContainer, ProdutctHeading, ProductWraper, ProductTitle, ProductCard, ProductImg, ProductInfo, ProductDesc, ProductPrice, ProductButton } from './ProductsElements';
 
 const Products = ({data, heading}) => {
+
+    const addProduct = (e)=> {
+        alert(e.target)
+    }
+
     return (
         <ProductsContainer>
             <ProdutctHeading>{heading}</ProdutctHeading>
@@ -14,7 +19,7 @@ const Products = ({data, heading}) => {
                             <ProductTitle>{product.name} </ProductTitle>
                             <ProductDesc>{product.desc}</ProductDesc>
                             <ProductPrice>{product.price}</ProductPrice>
-                            <ProductButton>Adicionar</ProductButton>
+                            <ProductButton onClick={ addProduct } key={product}>Adicionar</ProductButton>
                             </ProductInfo>
                         </ProductCard>
                     );

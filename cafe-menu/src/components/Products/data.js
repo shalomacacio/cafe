@@ -6,6 +6,7 @@ export const productData =
 [
     {
         img: product1,
+        id: 1,
         alt: 'Café',
         name: ' Café preto',
         desc: 'Café tradicional, açúcar(opcional).',
@@ -14,6 +15,7 @@ export const productData =
     },
     {
         img: product2,
+        id: 2,
         alt: 'Capuccino',
         name: ' Capuccino',
         desc: 'Capuccino com leite e ervas , com acúcar e corante',
@@ -22,6 +24,7 @@ export const productData =
     },
     {
         img: product3,
+        id: 3,
         alt: 'Macchiato',
         name: ' Macchiato',
         desc: 'Macchiato com chreme charilly',
