@@ -27,8 +27,13 @@ const Products = ({heading}) => {
     }
 
     const addProduct = (e)=> {
+        let itemsAtual = items;
         open();
-        items.push(e);        
+        itemsAtual.push(e);
+        setItems(itemsAtual)  
+        setTimeout(() => {
+            close()
+        }, 5000);      
     }
 
     return (
@@ -43,7 +48,7 @@ const Products = ({heading}) => {
                             <ProductInfo>
                             <ProductTitle>{product.name} </ProductTitle>
                             <ProductDesc>{product.desc}</ProductDesc>
-                            <ProductPrice>{product.price}</ProductPrice>
+                            <ProductPrice>R$ {product.price}</ProductPrice>
                             <ProductButton onClick={  ()=> {
                                 addProduct(product);
                             }} key={product.id}>Adicionar</ProductButton>

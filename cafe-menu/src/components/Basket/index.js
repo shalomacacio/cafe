@@ -1,23 +1,30 @@
 import React, {useState} from 'react';
-import {BasketContainer, BasketTitle,  BasketBtnClose, BasketList} from './BasketElements';
+import {BasketContainer, BasketTitle, BasketTotal,  BasketBtnClose, BasketBtnPay,  BasketList} from './BasketElements';
 
 const Basket = ({ items , isOpen }) => {
 
+
+
+    const somar = () =>{
+        let total = 0;
+        items.map( (item)=> {
+            total += item.price;
+        } )
+
+        return total;
+    }
 
     return (
         <BasketContainer aberto={isOpen}>
             <BasketTitle> Minha Cesta </BasketTitle>
             <BasketList>
-                {items.map( (item, index)=> {
-                    {console.log(items)}
-                    return (
-                        <div key={index}>
-                            {item.name}
-                        </div>
-                    )
-                } )}
+                {items.map( (item , index)=> (
+                    <div key={index}> {item.name} - R$ {item.price} ,00 </div>
+                ) )}
             </BasketList>
-            <BasketBtnClose>Continuar Comprando</BasketBtnClose>
+            <BasketTotal>{ somar() } </BasketTotal>
+            <BasketBtnPay> Pagar </BasketBtnPay>
+           
         </BasketContainer>
     )
 }
