@@ -11,7 +11,7 @@ function App() {
       <Router>
         <GlobalStyle />
         <Hero />
-        <Products heading=" Escolha o seu favorito !" data={productData} />
+        <Products heading=" Escolha o seu favorito !" />
       </Router>
     </>
   );

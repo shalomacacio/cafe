@@ -1,33 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react';
+import {BasketContainer, BasketTitle,  BasketBtnClose, BasketList} from './BasketElements';
 
-import {BasketContainer} from './BasketElements';
+const Basket = ({ items , isOpen }) => {
 
-const Basket = ({isOpen }) => {
+
     return (
-        <BasketContainer isOpen={isOpen}>
-            <div> Cesta </div>
+        <BasketContainer aberto={isOpen}>
+            <BasketTitle> Minha Cesta </BasketTitle>
+            <BasketList>
+                {items.map( (item, index)=> {
+                    {console.log(items)}
+                    return (
+                        <div key={index}>
+                            {item.name}
+                        </div>
+                    )
+                } )}
+            </BasketList>
+            <BasketBtnClose>Continuar Comprando</BasketBtnClose>
         </BasketContainer>
     )
 }
 
 export default Basket
-
-
-/*
-
-        <SidebarContainer isOpen={isOpen} onClick={toggle}>
-            <Icon onClick={toggle}>
-                <CloseIcon />
-            </Icon>
-            <SidebarMenu>
-                <SidebarLink to="/">Café</SidebarLink>
-                <SidebarLink to="/">Capuccino</SidebarLink>
-                <SidebarLink to="/">Macchiato</SidebarLink>
-            </SidebarMenu>
-            <SideBtnWrap>
-                <SidebarRoute to="/"> Peça Já !</SidebarRoute>
-            </SideBtnWrap>
-
-        </SidebarContainer>
-
-*/

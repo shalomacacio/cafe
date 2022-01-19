@@ -1,9 +1,22 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { ProductsContainer, ProdutctHeading, ProductWraper, ProductTitle, ProductCard, ProductImg, ProductInfo, ProductDesc, ProductPrice, ProductButton } from './ProductsElements';
 import Basket from '../Basket';
-const Products = ({data, heading}) => {
+import api from '../../services/api';
+
+const Products = ({heading}) => {
+
+    const [dados, setDados] = useState([]);
+
+    useEffect( ()=>{
+        api.get("/products").then( (res)=>{
+            setDados(res.data);
+        }).catch( (err)=>{
+            console.log("Erro"+err)
+        });
+    },[]);
 
     const [isOpen, setIsOpen] = useState(false);
+    const [items, setItems] = useState([]);
 
     const open = ()=>{
         setIsOpen(true);
@@ -14,22 +27,19 @@ const Products = ({data, heading}) => {
     }
 
     const addProduct = (e)=> {
-        //método para adcionar produto na lista
-        let items = [];
-        items.push(e);
         open();
-        console.log(e)
+        items.push(e);        
     }
 
     return (
         <ProductsContainer>
-            <Basket isOpen={isOpen} />
-            <ProdutctHeading>{heading}</ProdutctHeading>
+            <Basket isOpen={isOpen} items={items}  />
+            <ProdutctHeading>{heading}</ProdutctHeading>s
             <ProductWraper>
-                {data.map((product, index) => {
+                {dados.map((product, index) => {
                     return (
                         <ProductCard key={index}>
-                            <ProductImg src={product.img} alt={product.alt} />
+                            <ProductImg src={require('../../assets/images/'+product.img)} alt={product.alt} />
                             <ProductInfo>
                             <ProductTitle>{product.name} </ProductTitle>
                             <ProductDesc>{product.desc}</ProductDesc>
@@ -42,7 +52,6 @@ const Products = ({data, heading}) => {
                     );
                 })}
             </ProductWraper>
-            
         </ProductsContainer>
     )
 }
