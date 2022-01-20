@@ -6,10 +6,10 @@ const Navbar = ({toggle}) => {
         <>
             <Nav> 
                 <NavLink to='/'> CAFÉ XYZ </NavLink>
-                    <NavIcon onClick={toggle}>
+                    {/* <NavIcon onClick={toggle}>
                     <p>Pedidos</p>
                         <Bars />
-                    </NavIcon>
+                    </NavIcon> */}
             </Nav>
         </>
     )
