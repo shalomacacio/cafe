@@ -4,13 +4,13 @@ import ImgBg from '../../assets/images/bg-cafe.jpg'
 export const HeroContainer = styled.div`
 
     background: linear-gradient(to right, rgba(0,0,0,0.7),rgba(0,0,0,0.1)),url(${ImgBg});
-    height: 100vh;
+    height: 700px;
     background-position: center;
     background-size: cover;
 `;
 
 export const HeroContent = styled.div`
-    padding-top: 300px;
+    padding-top: 100px;
     height: calc(100vh -80px);
     max-height: 100%;
     widht: 100vw;
