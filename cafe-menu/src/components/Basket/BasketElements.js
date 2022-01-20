@@ -6,7 +6,7 @@ export const BasketContainer = styled.aside`
     position: fixed;
     width: 250px;
     height: 100%;
-    background: #c1c1c1;
+    background: #ffc500;
     top:0;
     display: grid;
     right: ${({ aberto }) => ( aberto ? '0' : '-100%' )   };
@@ -64,5 +64,10 @@ export const BasketTitle = styled.h1`
 
 export const BasketTotal = styled.div`
    background: transparent;
-   font-color: #fff
+   font-color: #fff;
+   margin: 30%;
+
+   p {
+       font-size: 30px;
+   }
 `;

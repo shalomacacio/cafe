@@ -11,7 +11,8 @@ const Basket = ({ items , isOpen }) => {
             total += item.price;
         } )
 
-        return total;
+        return total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        
     }
 
     return (
@@ -22,7 +23,7 @@ const Basket = ({ items , isOpen }) => {
                     <div key={index}> {item.name} - R$ {item.price} ,00 </div>
                 ) )}
             </BasketList>
-            <BasketTotal>{ somar() } </BasketTotal>
+            <BasketTotal> TOTAL: <p>{ somar() }</p> </BasketTotal>
             <BasketBtnPay> Pagar </BasketBtnPay>
            
         </BasketContainer>

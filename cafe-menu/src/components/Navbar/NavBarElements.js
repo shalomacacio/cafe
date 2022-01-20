@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {NavLink as Link} from 'react-router-dom';
-import { FaCoffee } from 'react-icons/fa'
+import { FaShoppingBasket } from 'react-icons/fa'
 
 export const Nav = styled.nav`
     background: #562626;
@@ -39,7 +39,7 @@ export const NavIcon = styled.div`
         font-weight: bold;
     }`;
 
-export const Bars = styled(FaCoffee)`
+export const Bars = styled(FaShoppingBasket)`
     font-size: 2rem;
     transform: translate( -50%, -15%);
     color: #fff
